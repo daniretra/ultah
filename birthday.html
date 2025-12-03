@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+    *{margin:0;padding:0;box-sizing:border-box}
+
+    body{
+        font-family:"Inter",sans-serif;
+        background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+        min-height:100vh;
+        overflow-x:hidden;
+        position:relative;
+    }
+
+    .page-wrapper{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:40px;
+        min-height:100vh;
+        position:relative;
+        z-index:5;
+    }
+
+    .audio-player{display:none}
+
+    .radial-glow{
+        position:fixed;
+        width:900px;
+        height:900px;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        background:radial-gradient(circle,rgba(139,92,246,.15),transparent 70%);
+        z-index:1;
+    }
+
+    .card{
+        background:rgba(255,255,255,.08);
+        backdrop-filter:blur(18px);
+        padding:50px;
+        border-radius:25px;
+        max-width:1100px;
+        width:100%;
+        border:1px solid rgba(255,255,255,.15);
+        box-shadow:0 20px 40px rgba(0,0,0,.4);
+    }
+
+    .content-wrapper{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:40px;
+        color:white;
+        z-index:10;
+    }
+
+    /* ----- TEXT ----- */
+    .title{
+        font-family:"Playfair Display",serif;
+        font-size:4em;
+        font-weight:900;
+        background:linear-gradient(90deg,#ffd700,#fff,#ffd700);
+        background-size:200%;
+        -webkit-background-clip:text;
+        color:transparent;
+        animation:shimmer 3s linear infinite;
+    }
+    @keyframes shimmer{
+        0%{background-position:0}
+        100%{background-position:200%}
+    }
+
+    .subtitle{
+        margin:10px 0 20px;
+        font-size:1.5em;
+        opacity:.9;
+    }
+
+    .message p{
+        margin-bottom:10px;
+        line-height:1.6;
+        opacity:.85;
+    }
+
+    /* ------ PHOTO ------ */
+    .photo-container{
+        border-radius:20px;
+        overflow:hidden;
+        border:2px solid rgba(255,255,255,.35);
+    }
+    .photo-placeholder{
+        width:100%;
+        aspect-ratio:3/4;
+        background:rgba(255,255,255,.2);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        font-size:1.2em;
+        font-style:italic;
+    }
+
+    /* ----- CONFETTI FIXED TOP ----- */
+    .confetti{
+        position:fixed;
+        width:10px;
+        height:10px;
+        top:-20px;
+        animation:fall 4s linear infinite;
+        z-index:2;
+    }
+    @keyframes fall{
+        0%{top:-20px;opacity:1;transform:rotate(0deg)}
+        100%{top:100vh;opacity:.4;transform:rotate(360deg)}
+    }
+
+    /* ----- BALLOON ----- */
+    .balloon{
+        position:fixed;
+        bottom:-120px;
+        width:50px;
+        height:70px;
+        border-radius:50% 50% 45% 45%;
+        animation:float 7s ease-in-out infinite;
+        z-index:2;
+    }
+    @keyframes float{
+        0%{bottom:-120px;opacity:.9;transform:translateX(0)}
+        100%{bottom:105vh;opacity:.3;transform:translateX(-30px)}
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="radial-glow"></div>
+
+<!-- AUDIO -->
+<audio class="audio-player" autoplay loop>
+    <source src="lagu/jamrud-selamat-ulang-tahun-mp3pm_5cJVYiKp.mp3" type="audio/mpeg">
+</audio>
+
+<!-- CONFETTI -->
+<div class="confetti" style="left:10%;background:#ff4d6d;"></div>
+<div class="confetti" style="left:25%;background:#4dabf7;"></div>
+<div class="confetti" style="left:40%;background:#69db7c;"></div>
+<div class="confetti" style="left:55%;background:#ffd43b;"></div>
+<div class="confetti" style="left:70%;background:#f783ac;"></div>
+<div class="confetti" style="left:15%;background:#ff4d6d;"></div>
+<div class="confetti" style="left:30%;background:#4dabf7;"></div>
+<div class="confetti" style="left:45%;background:#69db7c;"></div>
+<div class="confetti" style="left:60%;background:#ffd43b;"></div>
+<div class="confetti" style="left:75%;background:#f783ac;"></div>
+
+<!-- BALLOON -->
+<div class="balloon" style="left:15%;background:#ff6b6b;"></div>
+<div class="balloon" style="left:35%;background:#4dabf7;"></div>
+<div class="balloon" style="left:55%;background:#69db7c;"></div>
+<div class="balloon" style="left:75%;background:#ffd43b;"></div>
+<div class="balloon" style="left:20%;background:#ff6b6b;"></div>
+<div class="balloon" style="left:40%;background:#4dabf7;"></div>
+<div class="balloon" style="left:60%;background:#69db7c;"></div>
+<div class="balloon" style="left:80%;background:#ffd43b;"></div>
+
+<div class="page-wrapper">
+    <div class="card">
+        <div class="content-wrapper">
+
+            <div>
+                <h1 class="title">Happy</h1>
+                 <h1 class="title">Birthday</h1>
+                <p class="subtitle">SELAMAT ULANG TAHUN</p>
+                <p class="subtitle">AIDAH KAMILAH SARI</p>
+
+                <div class="message">
+                    <p>⭐ Selamat ulang tahun, adikku tersayang. Semoga setiap langkahmu selalu diberi kemudahan, kebahagiaan, dan disertai doa terbaik dari Mas Dani ganteng.</p>
+                    <p>⭐ Happy birthday untuk adik terbaik. Semoga Allah SWT senantiasa melindungi, mencintai, dan membimbingmu menuju masa depan yang cerah.</p>
+                    <p>⭐ Selamat ulang tahun, dek! Semoga apa pun yang kamu impikan bisa tercapai, dan hidupmu penuh keberkahan.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="photo-container">
+                    <img src="gambar/Desain tanpa judul.png" class="photo-image">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+window.addEventListener("load", function(){
+    var audio = document.querySelector(".audio-player");
+    var playPromise = audio.play();
+
+    if (playPromise !== undefined){
+        playPromise.catch(() => {
+            document.body.addEventListener("click", () => {
+                audio.play();
+            }, {once:true});
+        });
+    }
+});
+</script>
+
+</body>
+</html>
